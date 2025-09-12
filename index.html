@@ -1,40 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>EventPulse · Pune Event Marketplace</title>
+    <title>EventPulse · Premium Event Services Marketplace</title>
 
     <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@500;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Styles -->
     <link rel="stylesheet" href="index.css">
-</head>
 
 <body>
 
     <div class="container">
 
-        <header>
-            <div class="brand">
-                <div class="logo" aria-hidden>EP</div>
-                <div>
-                    <h1>EventPulse</h1>
-                    <p class="muted">Pune · Maharashtra — Event Marketplace</p>
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="brand">
+                    <div class="logo">
+                        <span class="logo-text">EP</span>
+                    </div>
+                    <div class="brand-text">
+                        <h1>EventPulse</h1>
+                        <p>Pune's Premier Event Platform</p>
+                    </div>
+                </div>
+
+                <div class="nav-links">
+                    <a href="#discover" class="nav-link">Discover</a>
+                    <a href="#vendors" class="nav-link">Vendors</a>
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <button class="btn-primary">Get Started</button>
                 </div>
             </div>
-
-            <nav aria-label="Primary">
-                <a href="#categories">Services</a>
-                <a href="#vendors">Vendors</a>
-                <a href="#b2b">B2B</a>
-                <a href="#how">How it works</a>
-                <a class="cta" href="#">Get Started</a>
-            </nav>
-        </header>
+        </nav>
 
         <!-- HERO + ASIDE -->
         <section class="hero">
@@ -280,29 +285,100 @@
 
         <!-- How it works -->
         <section class="how" id="how">
-            <div class="step fade-in">
-                <div class="muted">1</div>
-                <h4>Search</h4>
-                <p class="muted">Choose service, dates and budget</p>
-            </div>
-            <div class="step fade-in">
-                <div class="muted">2</div>
-                <h4>Request or Book</h4>
-                <p class="muted">Request quotes or instant book if available</p>
-            </div>
-            <div class="step fade-in">
-                <div class="muted">3</div>
-                <h4>Pay & Confirm</h4>
-                <p class="muted">Secure payments with GST-compliant invoices</p>
+            <h2 class="how-title fade-in">How EventPulse Works</h2>
+            <div class="steps-container">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <h4>Browse & Compare</h4>
+                    <p>Explore our curated selection of premium vendors and compare services</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <h4>Book with Confidence</h4>
+                    <p>Secure your date with verified vendors and transparent pricing</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <h4>Celebrate Success</h4>
+                    <p>Experience a seamless event with our professional support</p>
+                </div>
             </div>
         </section>
 
-        <footer>
-            <div>&copy; 2025 EventPulse · Pune / Maharashtra</div>
-            <div class="muted">Terms · Privacy · Contact</div>
-        </footer>
-        
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EventPulse</h3>
+                <p>Creating memorable events with Pune's finest vendors. Your one-stop destination for premium event
+                    services.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M16 4H8C5.79086 4 4 5.79086 4 8V16C4 18.2091 5.79086 20 8 20H16C18.2091 20 20 18.2091 20 16V8C20 5.79086 18.2091 4 16 4Z" />
+                            <path
+                                d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <div class="links">
+                    <a href="#about">About Us</a>
+                    <a href="#services">Services</a>
+                    <a href="#vendors">Vendors</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Services</h4>
+                <div class="links">
+                    <a href="#venues">Venue Booking</a>
+                    <a href="#catering">Catering</a>
+                    <a href="#decor">Decoration</a>
+                    <a href="#photography">Photography</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <div class="links">
+                    <a href="#help">Help Center</a>
+                    <a href="#safety">Safety Guidelines</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>&copy; 2025 EventPulse. All rights reserved.</div>
+            <div class="footer-bottom-links">
+                <a href="#terms">Terms</a>
+                <a href="#privacy">Privacy</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
