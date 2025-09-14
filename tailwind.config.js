@@ -70,14 +70,14 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        'heading': ['Inter', 'sans-serif'],
-        'body': ['Source Sans Pro', 'sans-serif'],
+        'heading': ['Inter', 'Poppins', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+        'body': ['Inter', 'Poppins', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
         'caption': ['Roboto', 'sans-serif'],
         'mono': ['JetBrains Mono', 'monospace'],
       },
       boxShadow: {
-        'card': '0 1px 3px rgba(0, 0, 0, 0.1)',
-        'modal': '0 4px 12px rgba(0, 0, 0, 0.15)',
+        'card': 'var(--shadow-sm)',
+        'modal': 'var(--shadow-lg)',
       },
       transitionDuration: {
         'smooth': '200ms',
