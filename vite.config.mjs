@@ -8,8 +8,15 @@ export default defineConfig({
   // This changes the out put dir from dist to build
   // comment this out if that isn't relevant for your project
   build: {
-    outDir: "build",
+    outDir: "dist", // Changed from "build" to "dist"
     chunkSizeWarningLimit: 2000,
+    assetsDir: "assets",
+    emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
   plugins: [tsconfigPaths(), react(), tagger()],
   server: {
