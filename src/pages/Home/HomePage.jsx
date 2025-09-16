@@ -26,6 +26,7 @@ const HomePage = () => {
   };
 
   return (
+
     <div className="container">
 
       <header>
@@ -307,6 +308,7 @@ const HomePage = () => {
       </footer>
 
     </div>
+    
   );
 };
 

@@ -121,6 +121,7 @@ const UserRegistrationLogin = () => {
   };
 
   return (
+
     <div className="min-h-screen bg-background flex flex-col">
       {/* Fixed Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border h-16">
@@ -141,7 +142,7 @@ const UserRegistrationLogin = () => {
 
       {/* Main Content - fixed height card */}
       <main className="flex flex-1 pt-16 items-center justify-center p-4">
-        <div className="bg-card rounded-2xl shadow-lg border border-border flex flex-col lg:flex-row w-full max-w-5xl h-[calc(100vh-5rem)]">
+        <div className="bg-card rounded-2xl shadow-lg border border-border flex flex-col lg:flex-row w-full max-w-5xl h-[calc(100vh-5rem)] max-h-[80vh]">
           {/* Image Section - fixed aspect ratio on desktop, banner on mobile */}
           <div className="lg:w-1/2 relative h-40 lg:h-auto">
             <Image
@@ -163,7 +164,7 @@ const UserRegistrationLogin = () => {
 
           {/* Form Section - compact layout */}
           <div className="flex-1 flex items-center justify-center p-4 lg:p-6">
-            <div className="w-full max-w-sm space-y-4">
+            <div className="w-full max-w-sm space-y-4 max-h-[60vh] overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: '#cbd5e1 transparent' }}>
               <AuthHeader activeTab={activeTab} />
               <AuthTabs activeTab={activeTab} onTabChange={setActiveTab} />
 
@@ -205,6 +206,7 @@ const UserRegistrationLogin = () => {
         </div>
       </main>
     </div>
+
   );
 };
 

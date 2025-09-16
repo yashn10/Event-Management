@@ -301,6 +301,7 @@ const VendorProfilePortfolio = () => {
   };
 
   return (
+
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <RoleBasedNavigation
@@ -375,6 +376,7 @@ const VendorProfilePortfolio = () => {
         vendor={vendor}
       />
     </div>
+
   );
 };
 

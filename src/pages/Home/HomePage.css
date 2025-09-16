@@ -10,7 +10,7 @@ header {
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    margin-bottom: 22px
+    /* margin: 22px */
 }
 
 .brand {
