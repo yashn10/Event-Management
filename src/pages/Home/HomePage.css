@@ -1,16 +1,55 @@
-/* Home Page Specific Styles */
-
-.container {
-    padding: 0 30px;
+/* ---------- Theme variables (self-contained) ---------- */
+:root {
+    --accent: #0066ff;
+    --accent-2: #7c5cff;
+    --muted: #6b7280;
+    --text: #0f1724;
+    --card: #ffffff;
+    --bg: #f7fbff;
+    --success: #10b981;
+    --glass: rgba(16, 24, 40, 0.03);
+    --shadow-sm: 0 6px 18px rgba(16, 24, 40, 0.06);
+    --shadow-lg: 0 18px 50px rgba(16, 24, 40, 0.08);
+    --radius: 12px;
+    --container-width: 1200px;
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 18px;
+    --spacing-lg: 28px;
+    --spacing-xl: 40px;
+    --spacing-2xl: 56px;
+    --transition-base: 200ms cubic-bezier(.2, .9, .2, 1);
+    --font-primary: Poppins, "sans-serif";
 }
 
-/* Header */
+/* ---------- Base / layout ---------- */
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    padding: 36px 0;
+    font-family: var(--font-primary);
+    background: linear-gradient(180deg, #f3f8ff 0%, var(--bg) 45%);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 30px
+}
+
+/* ---------- Header ---------- */
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    /* margin: 22px */
+    margin-bottom: 22px
 }
 
 .brand {
@@ -27,10 +66,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(63, 63, 63);
+    color: #fff;
     font-weight: 800;
     font-size: 20px;
-    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.12);
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.12)
 }
 
 .brand h1 {
@@ -69,12 +108,13 @@ nav a:hover {
     padding: 10px 16px;
     border-radius: 12px;
     color: white;
-    text-decoration: none;
     font-weight: 700;
-    box-shadow: var(--shadow-sm)
+    box-shadow: var(--shadow-sm);
+    border: 0;
+    cursor: pointer
 }
 
-/* HERO */
+/* ---------- HERO ---------- */
 .hero {
     display: grid;
     grid-template-columns: 1fr 380px;
@@ -102,11 +142,12 @@ nav a:hover {
     font-size: 15px
 }
 
-/* Search block */
+/* ---------- Search ---------- */
 .search-row {
     display: flex;
     gap: 10px;
-    align-items: center
+    align-items: center;
+    flex-wrap: wrap
 }
 
 .search-field {
@@ -130,110 +171,130 @@ nav a:hover {
     width: 100%
 }
 
+/* ---------- Buttons (primary + outline) ---------- */
+/* Shared rules so they align perfectly */
+.btn-primary,
 .btn-outline {
-    background: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-    padding: 10px 16px;
-    border-radius: var(--radius-md);
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    min-height: 42px;
+    /* same height */
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 220ms cubic-bezier(.2, .9, .2, 1);
+    line-height: 1;
     text-decoration: none;
-    font-family: var(--font-primary);
+    border: 0;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    gap: 8px;
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* Hover */
-.btn-outline:hover {
-    background: var(--primary);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
-}
-
-/* Active */
-.btn-outline:active {
-    transform: translateY(1px);
-    background: var(--primary-dark);
-    border-color: var(--primary-dark);
-}
-
-/* Focus */
-.btn-outline:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
-}
-
-
+/* PRIMARY: polished gradient with shine, accessible focus */
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: var(--radius-md);
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-    position: relative;
-    overflow: hidden;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-decoration: none;
-    font-family: var(--font-primary);
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(0, 102, 255, 0.18);
+    border: 0;
 }
 
-/* Hover state */
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
-    background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
-}
-
-/* Active state */
-.btn-primary:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 10px rgba(37, 99, 235, 0.2);
-}
-
-/* Focus state */
-.btn-primary:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.4);
-}
-
-/* Shine effect */
+/* primary shine */
 .btn-primary::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
+    left: -120%;
+    width: 60%;
     height: 100%;
-    background: linear-gradient(120deg,
-            transparent,
-            rgba(255, 255, 255, 0.3),
-            transparent);
-    transition: 0.5s ease;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.28) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-22deg);
+    transition: left 0.7s cubic-bezier(.2, .9, .2, 1);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .btn-primary:hover::before {
-    left: 100%;
+    left: 120%
 }
 
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(0, 102, 255, 0.22)
+}
 
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 18px rgba(0, 102, 255, 0.16)
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.16)
+}
+
+/* OUTLINE: initial outlined style -> fills on hover */
+.btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid rgba(0, 102, 255, 0.12);
+    box-shadow: 0 2px 8px rgba(16, 24, 40, 0.04);
+}
+
+/* create inner fill overlay to animate from outline -> filled */
+.btn-outline::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    opacity: 0;
+    transform: scaleX(0.96);
+    transition: opacity 220ms ease, transform 220ms ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.btn-outline>* {
+    position: relative;
+    z-index: 1
+}
+
+/* keep label above overlay */
+
+.btn-outline:hover::after {
+    opacity: 1;
+    transform: scaleX(1)
+}
+
+.btn-outline:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0, 102, 255, 0.12);
+    border-color: transparent
+}
+
+.btn-outline:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.08)
+}
+
+.btn-outline:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.12)
+}
+
+/* ensure text color contrast when overlay active (for keyboard users) */
+.btn-outline[aria-pressed="true"],
+.btn-outline:active {
+    color: #fff
+}
+
+/* ---------- Filters / chips ---------- */
 .filters {
     display: flex;
     gap: 8px;
@@ -251,7 +312,7 @@ nav a:hover {
     font-size: 13px
 }
 
-/* Right panel */
+/* ---------- Aside / calendar ---------- */
 .aside {
     display: flex;
     flex-direction: column;
@@ -299,7 +360,7 @@ nav a:hover {
     font-weight: 700
 }
 
-/* categories */
+/* ---------- categories ---------- */
 .section {
     margin-top: 26px
 }
@@ -325,7 +386,7 @@ nav a:hover {
     border: 1px solid rgba(16, 24, 40, 0.03);
     box-shadow: var(--shadow-sm);
     cursor: pointer;
-    transition: transform .18s ease, box-shadow .18s ease
+    transition: transform var(--transition-base), box-shadow var(--transition-base)
 }
 
 .cat:hover {
@@ -345,7 +406,7 @@ nav a:hover {
     font-size: 22px
 }
 
-/* vendors grid */
+/* ---------- vendors ---------- */
 .vendors {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -414,210 +475,111 @@ nav a:hover {
     font-size: 13px
 }
 
-/* Fix vendor footer button overflow */
+.badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px
+}
+
+.badge {
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(16, 24, 40, 0.04);
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 700
+}
+
+/* ---------- FIX vendor footer overflow + consistent button alignment ---------- */
 .vendor-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 12px 14px;
     border-top: 1px solid rgba(16, 24, 40, 0.03);
-    background: transparent;
-    gap: 10px;
-    /* add gap between price and buttons */
+    gap: 12px;
     flex-wrap: wrap;
-    /* allow wrapping on small widths */
+    /* allow wrap on smaller widths */
+    background: transparent;
 }
 
+/* Price should never shrink and stays left */
 .vendor-footer .price {
     flex-shrink: 0;
-    /* prevent price from shrinking */
+    font-weight: 800;
+    color: var(--text);
 }
 
-.vendor-footer div {
+/* Button group area */
+.vendor-footer .btn-row {
     display: flex;
     gap: 8px;
+    align-items: center;
     flex-wrap: wrap;
-    /* wrap buttons to next line if needed */
+    /* wrap buttons under price on narrow screens */
 }
 
-/* How it Works Section */
+/* If you used inline style div for buttons, ensure it has class btn-row or relies on this selector */
+.vendor-footer>div:last-child {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+/* Make both buttons same height and visually balanced */
+.btn-primary,
+.btn-outline {
+    height: 42px;
+    /* strict height to avoid overflow differences */
+    padding: 0 12px;
+    /* vertical padding handled by height & line-height */
+    line-height: 42px;
+}
+
+/* If button labels wrap on very small screens, allow auto height */
+@media (max-width:420px) {
+
+    .btn-primary,
+    .btn-outline {
+        height: auto;
+        line-height: 1.2;
+        padding: 10px 14px
+    }
+}
+
+/* ---------- How it works spacing fix ---------- */
 .how {
-    max-width: var(--container-width);
-    margin: var(--spacing-2xl) auto;
-    padding: var(--spacing-2xl) var(--spacing-xl);
-    background: linear-gradient(180deg, var(--gray-50), white);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--gray-100);
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+    margin-bottom: 40px;
+    /* breathing room before footer */
 }
 
-.how-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: var(--gray-900);
-    margin-bottom: var(--spacing-2xl);
-    font-weight: 700;
-}
-
-.steps-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-xl);
-    padding: var(--spacing-lg) 0;
-}
-
+/* older step styles fallback (if present in markup) */
 .step {
-    position: relative;
-    padding: var(--spacing-xl);
-    background: white;
-    border-radius: var(--radius-lg);
-    text-align: center;
-    transition: var(--transition-base);
-    border: 1px solid var(--gray-100);
-    box-shadow: var(--shadow-sm);
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #fff, #fbfdff);
+    border: 1px solid rgba(16, 24, 40, 0.03);
+    text-align: center
 }
 
-.step:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-}
-
-.step-number {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto var(--spacing-md);
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 700;
-    font-size: 1.25rem;
-}
-
-.step h4 {
-    color: var(--gray-900);
-    font-size: 1.25rem;
-    margin: var(--spacing-md) 0;
-}
-
-.step p {
-    color: var(--gray-600);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
-}
-
-
-.footer {
-    background: var(--gray-900);
-    color: white;
-    padding: var(--spacing-2xl) 0 var(--spacing-lg);
-    margin-top: var(--spacing-2xl);
-}
-
-.footer-content {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 var(--spacing-xl);
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: var(--spacing-2xl);
-}
-
-.footer-section h3 {
-    color: white;
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-lg);
-    font-weight: 600;
-}
-
-.footer-section h4 {
-    color: var(--gray-400);
-    font-size: 1rem;
-    margin-bottom: var(--spacing-md);
-    font-weight: 600;
-}
-
-.footer-section p {
-    color: var(--gray-400);
-    font-size: 0.95rem;
-    margin-bottom: var(--spacing-lg);
-    line-height: 1.6;
-}
-
-.footer-section .links {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-}
-
-.footer-section a {
-    color: var(--gray-400);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: var(--transition-base);
-    display: inline-block;
-    padding: var(--spacing-xs) 0;
-}
-
-.footer-section a:hover {
-    color: white;
-    transform: translateX(4px);
-}
-
-.social-links {
-    display: flex;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
-}
-
-.social-link {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    transition: var(--transition-base);
-}
-
-.social-link:hover {
-    background: var(--primary);
-    transform: translateY(-2px);
-}
-
-.footer-bottom {
-    max-width: var(--container-width);
-    margin: var(--spacing-xl) auto 0;
-    padding: var(--spacing-lg) var(--spacing-xl);
-    border-top: 1px solid var(--gray-800);
+/* ---------- Footer spacing fix ---------- */
+footer {
+    margin-top: 40px;
+    padding: 18px;
+    border-radius: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--gray-500);
-    font-size: 0.875rem;
+    color: var(--muted)
 }
 
-.footer-bottom-links {
-    display: flex;
-    gap: var(--spacing-lg);
-}
-
-.footer-bottom-links a {
-    color: var(--gray-500);
-    text-decoration: none;
-    transition: var(--transition-base);
-}
-
-.footer-bottom-links a:hover {
-    color: white;
-}
-
-/* responsive */
+/* ---------- Responsiveness ---------- */
 @media (max-width:1024px) {
     .hero {
         grid-template-columns: 1fr 320px
@@ -662,7 +624,7 @@ nav a:hover {
     }
 }
 
-/* subtle animation */
+/* ---------- subtle animation ---------- */
 .fade-in {
     opacity: 0;
     transform: translateY(8px);
