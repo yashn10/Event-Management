@@ -33,7 +33,7 @@ const HomePage = () => {
         <div className="brand">
           <div className="logo" aria-hidden>EP</div>
           <div>
-            <h1>EventPulse</h1>
+            <h1>Eventnect</h1>
             <p className="muted">Pune · Maharashtra — Event Marketplace</p>
           </div>
         </div>
@@ -303,7 +303,7 @@ const HomePage = () => {
       </section>
 
       <footer>
-        <div>© 2025 EventPulse · Pune / Maharashtra</div>
+        <div>© 2025 Eventnect · Pune / Maharashtra</div>
         <div className="muted">Terms · Privacy · Contact</div>
       </footer>
 
