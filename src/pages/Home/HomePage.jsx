@@ -4,9 +4,16 @@ import './HomePage.css';
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const [location, setLocation] = React.useState('');
+  const [date, setDate] = React.useState('');
 
   const handleSearch = () => {
-    navigate('/vendor-search-discovery');
+    const params = new URLSearchParams();
+    if (searchQuery.trim()) params.append('q', searchQuery.trim());
+    if (location.trim()) params.append('location', location.trim());
+    if (date.trim()) params.append('date', date.trim());
+    navigate(`/vendor-search-discovery?${params.toString()}`);
   };
 
   const handleGetStarted = () => {
@@ -33,7 +40,7 @@ const HomePage = () => {
         <div className="brand">
           <div className="logo" aria-hidden>EP</div>
           <div>
-            <h1>EventPulse</h1>
+            <h1>Eventnect</h1>
             <p className="muted">Pune · Maharashtra — Event Marketplace</p>
           </div>
         </div>
@@ -60,7 +67,7 @@ const HomePage = () => {
                 <path d="M21 21l-4.35-4.35" stroke="#9aa7b2" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                 <circle cx="11" cy="11" r="6" stroke="#9aa7b2" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <input type="text" placeholder="What are you looking for? (Caterer, Decor, Photographer)" aria-label="Service input" />
+              <input type="text" placeholder="What are you looking for? (Caterer, Decor, Photographer)" aria-label="Service input" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
             </label>
 
             <label className="search-field" aria-hidden="true">
@@ -69,7 +76,7 @@ const HomePage = () => {
                 <path d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke="#9aa7b2" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M12 21s8-4.5 8-11a8 8 0 1 0-16 0c0 6.5 8 11 8 11z" stroke="#9aa7b2" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <input type="text" placeholder="Location — Pune, Kothrud" aria-label="Location input" />
+            <input type="text" placeholder="Location — Pune, Kothrud" aria-label="Location input" value={location} onChange={(e) => setLocation(e.target.value)} />
             </label>
 
             <label className="search-field" aria-hidden="true">
@@ -78,7 +85,7 @@ const HomePage = () => {
                 <rect x="3" y="5" width="18" height="16" rx="2" stroke="#9aa7b2" strokeWidth="1.4" />
                 <path d="M16 3v4M8 3v4M3 11h18" stroke="#9aa7b2" strokeWidth="1.4" strokeLinecap="round" />
               </svg>
-              <input type="text" placeholder="Date — 10 Oct 2025" aria-label="Date input" />
+            <input type="text" placeholder="Date — 10 Oct 2025" aria-label="Date input" value={date} onChange={(e) => setDate(e.target.value)} />
             </label>
 
             <button className="btn-primary" onClick={handleSearch} aria-label="Search">Search</button>
@@ -303,7 +310,7 @@ const HomePage = () => {
       </section>
 
       <footer>
-        <div>© 2025 EventPulse · Pune / Maharashtra</div>
+        <div>© 2025 Eventnect · Pune / Maharashtra</div>
         <div className="muted">Terms · Privacy · Contact</div>
       </footer>
 

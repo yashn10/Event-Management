@@ -6,11 +6,11 @@ const AuthHeader = ({ activeTab }) => {
     if (activeTab === 'login') {
       return {
         title: 'Welcome Back!',
-        subtitle: 'Sign in to access your EventConnect dashboard and manage your bookings.'
+        subtitle: 'Sign in to access your Eventnect dashboard and manage your bookings.'
       };
     }
     return {
-      title: 'Join EventConnect',
+      title: 'Join Eventnect',
       subtitle: 'Create your account to discover amazing event services in Pune and Maharashtra.'
     };
   };
