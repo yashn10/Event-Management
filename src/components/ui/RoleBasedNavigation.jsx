@@ -44,7 +44,7 @@ const RoleBasedNavigation = ({ userRole = 'customer', isAuthenticated = false, a
         <Icon name="Calendar" size={20} color="white" />
       </div>
       <span className="text-xl font-heading font-bold text-foreground">
-        EventConnect
+      Eventnect
       </span>
     </div>
   );
