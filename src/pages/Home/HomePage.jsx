@@ -7,12 +7,15 @@ const HomePage = () => {
   const [searchQuery, setSearchQuery] = React.useState('');
   const [location, setLocation] = React.useState('');
   const [date, setDate] = React.useState('');
+  const [selectedFilters, setSelectedFilters] = React.useState([]);
+  const [selectedCategory, setSelectedCategory] = React.useState('');
 
   const handleSearch = () => {
     const params = new URLSearchParams();
     if (searchQuery.trim()) params.append('q', searchQuery.trim());
     if (location.trim()) params.append('location', location.trim());
     if (date.trim()) params.append('date', date.trim());
+    if (selectedFilters.length > 0) params.append('filters', selectedFilters.join(','));
     navigate(`/vendor-search-discovery?${params.toString()}`);
   };
 
@@ -30,6 +33,18 @@ const HomePage = () => {
 
   const handleBookNow = (vendorId) => {
     navigate(`/quote-request-booking-flow?vendor=${vendorId}&action=book`);
+  };
+
+  const handleFilterClick = (filter) => {
+    setSelectedFilters(prev => prev.includes(filter) ? prev.filter(f => f !== filter) : [...prev, filter]);
+  };
+
+  const handleCategoryClick = (category) => {
+    setSearchQuery(category);
+  };
+
+  const handleViewCalendar = () => {
+    document.getElementById('calendar').scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -85,50 +100,35 @@ const HomePage = () => {
                 <rect x="3" y="5" width="18" height="16" rx="2" stroke="#9aa7b2" strokeWidth="1.4" />
                 <path d="M16 3v4M8 3v4M3 11h18" stroke="#9aa7b2" strokeWidth="1.4" strokeLinecap="round" />
               </svg>
-            <input type="text" placeholder="Date — 10 Oct 2025" aria-label="Date input" value={date} onChange={(e) => setDate(e.target.value)} />
+            <input type="date" placeholder="Date — 10 Oct 2025" aria-label="Date input" value={date} onChange={(e) => setDate(e.target.value)} />
             </label>
 
             <button className="btn-primary" onClick={handleSearch} aria-label="Search">Search</button>
           </div>
 
           <div className="filters" aria-hidden>
-            <div className="chip">Eco-friendly</div>
-            <div className="chip">Budget ₹10k–50k</div>
-            <div className="chip">Wedding</div>
-            <div className="chip">Instant book</div>
+            {['Eco-friendly', 'Budget ₹10k–50k', 'Wedding', 'Instant book'].map(filter => (
+              <div key={filter} className={`chip ${selectedFilters.includes(filter) ? 'selected' : ''}`} onClick={() => handleFilterClick(filter)}>{filter}</div>
+            ))}
           </div>
 
           <div className="section" id="categories">
             <h3>Popular Categories</h3>
             <div className="categories">
-              <div className="cat" title="Banquet halls">
-                <div className="icon">🎪</div>
-                <div>
-                  <strong>Banquet Halls</strong>
-                  <div className="muted">Large & intimate venues</div>
+              {[
+                { name: 'Banquet Halls', icon: '🎪', desc: 'Large & intimate venues' },
+                { name: 'Catering', icon: '🍽️', desc: 'Veg / Non-veg / Fusion' },
+                { name: 'Decor & Lighting', icon: '💡', desc: 'Eco & modern themes' },
+                { name: 'Photographers', icon: '📷', desc: 'Pre-wedding & candid' }
+              ].map(cat => (
+                <div key={cat.name} className="cat" title={cat.name} onClick={() => handleCategoryClick(cat.name)}>
+                  <div className="icon">{cat.icon}</div>
+                  <div>
+                    <strong>{cat.name}</strong>
+                    <div className="muted">{cat.desc}</div>
+                  </div>
                 </div>
-              </div>
-
-              <div className="cat" title="Catering">
-                <div className="icon">🍽️</div>
-                <div><strong>Catering</strong>
-                  <div className="muted">Veg / Non-veg / Fusion</div>
-                </div>
-              </div>
-
-              <div className="cat" title="Decor">
-                <div className="icon">💡</div>
-                <div><strong>Decor & Lighting</strong>
-                  <div className="muted">Eco & modern themes</div>
-                </div>
-              </div>
-
-              <div className="cat" title="Photography">
-                <div className="icon">📷</div>
-                <div><strong>Photographers</strong>
-                  <div className="muted">Pre-wedding & candid</div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -222,7 +222,7 @@ const HomePage = () => {
 
         {/* RIGHT ASIDE */}
         <aside className="aside">
-          <div className="card calendar fade-in" aria-hidden>
+          <div className="card calendar fade-in" id="calendar" aria-hidden>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <strong>October 2025</strong>
               <div className="muted">Availability snapshot — Pune</div>
@@ -272,14 +272,13 @@ const HomePage = () => {
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '12px' }}>
               <div className="muted">Next: 3 bookings this week</div>
-              <a className="chip" href="#">View calendar</a>
+              <button className="chip" onClick={handleViewCalendar}>View calendar</button>
             </div>
           </div>
 
           <div className="card fade-in">
-            <strong>Smart Recommendations</strong>
-            <p className="muted" style={{ marginTop: '8px' }}>AI-powered vendor suggestions based on event type, budget
-              and availability.</p>
+            <strong>Popular Services</strong>
+            <p className="muted" style={{ marginTop: '8px' }}>Curated vendor suggestions based on event type, budget and availability.</p>
           </div>
 
           <div className="card fade-in">
