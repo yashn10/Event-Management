@@ -16,8 +16,8 @@ const UserRegistrationLogin = () => {
 
   // Mock credentials for testing
   const mockCredentials = {
-    customer: { email: "customer@eventconnect.com", password: "Customer123!" },
-    vendor: { email: "vendor@eventconnect.com", password: "Vendor123!" },
+    customer: { email: "customer@eventnect.com", password: "Customer123!" },
+    vendor: { email: "vendor@eventnect.com", password: "Vendor123!" },
   };
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const UserRegistrationLogin = () => {
         navigate("/vendor-dashboard");
       } else {
         alert(
-          "Invalid credentials. Use:\nCustomer: customer@eventconnect.com / Customer123!\nVendor: vendor@eventconnect.com / Vendor123!"
+          "Invalid credentials. Use:\nCustomer: customer@eventnect.com / Customer123!\nVendor: vendor@eventnect.com / Vendor123!"
         );
       }
     } catch (error) {
