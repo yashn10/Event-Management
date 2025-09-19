@@ -115,12 +115,12 @@ const VendorCard = ({ vendor, onGetQuote, onViewProfile, isDesktop = false }) =>
           >
             <Icon name="Eye" size={14} />
           </button>
-          <button
+          {/* <button
             className="w-8 h-8 bg-black/50 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
             title="Add to Favorites"
           >
             <Icon name="Heart" size={14} />
-          </button>
+          </button> */}
         </div>
 
         {/* Availability Status */}

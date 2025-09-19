@@ -54,10 +54,10 @@ const RoleBasedNavigation = ({ userRole = 'customer', isAuthenticated = false, a
       return (
         <div className="flex items-center space-x-4">
           <div className="relative">
-            <Icon 
-              name="Bell" 
-              size={20} 
-              className="text-muted-foreground hover:text-foreground cursor-pointer transition-smooth" 
+            <Icon
+              name="Bell"
+              size={20}
+              className="text-muted-foreground hover:text-foreground cursor-pointer transition-smooth"
             />
             {(notifications?.bookings + notifications?.messages) > 0 && (
               <span className="absolute -top-1 -right-1 bg-error text-error-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center">
@@ -76,16 +76,16 @@ const RoleBasedNavigation = ({ userRole = 'customer', isAuthenticated = false, a
       <div className="flex items-center space-x-3">
         <button
           onClick={() => handleNavigation('/user-registration-login')}
-          className="text-muted-foreground hover:text-foreground transition-smooth font-body font-semibold"
+          className="text-muted-foreground hover:text-foreground transition-smooth font-body"
         >
           Sign In
         </button>
-        <button
+        {/* <button
           onClick={() => handleNavigation('/user-registration-login')}
-          className="bg-primary text-primary-foreground px-4 py-2 rounded-lg font-body font-semibold hover:bg-primary/90 transition-smooth"
+          className="text-muted-foreground px-4 py-2 rounded-lg font-body hover:text-foreground transition-smooth"
         >
           Get Started
-        </button>
+        </button> */}
       </div>
     );
   };
@@ -93,9 +93,9 @@ const RoleBasedNavigation = ({ userRole = 'customer', isAuthenticated = false, a
   return (
     <header className="fixed top-0 left-0 right-0 bg-card border-b border-border z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 gap-5">
           {/* Logo */}
-          <div 
+          <div
             className="cursor-pointer"
             onClick={() => handleNavigation('/')}
           >
@@ -106,14 +106,14 @@ const RoleBasedNavigation = ({ userRole = 'customer', isAuthenticated = false, a
           <div className="hidden lg:flex items-center flex-1 justify-center">
             {isAuthenticated ? (
               userRole === 'vendor' ? (
-                <VendorDashboardNavigation 
+                <VendorDashboardNavigation
                   activeRoute={activeRoute}
                   onNavigate={handleNavigation}
                   notifications={notifications}
                   isDesktop={true}
                 />
               ) : (
-                <CustomerNavigationBar 
+                <CustomerNavigationBar
                   activeRoute={activeRoute}
                   onNavigate={handleNavigation}
                   notifications={notifications}
@@ -121,7 +121,7 @@ const RoleBasedNavigation = ({ userRole = 'customer', isAuthenticated = false, a
                 />
               )
             ) : (
-              <CustomerNavigationBar 
+              <CustomerNavigationBar
                 activeRoute={activeRoute}
                 onNavigate={handleNavigation}
                 notifications={notifications}
@@ -140,10 +140,10 @@ const RoleBasedNavigation = ({ userRole = 'customer', isAuthenticated = false, a
           <div className="lg:hidden flex items-center space-x-4">
             {isAuthenticated && (
               <div className="relative">
-                <Icon 
-                  name="Bell" 
-                  size={20} 
-                  className="text-muted-foreground" 
+                <Icon
+                  name="Bell"
+                  size={20}
+                  className="text-muted-foreground"
                 />
                 {(notifications?.bookings + notifications?.messages) > 0 && (
                   <span className="absolute -top-1 -right-1 bg-error text-error-foreground text-xs rounded-full w-4 h-4 flex items-center justify-center">
@@ -167,14 +167,14 @@ const RoleBasedNavigation = ({ userRole = 'customer', isAuthenticated = false, a
           <div className="px-4 py-4 space-y-4">
             {isAuthenticated ? (
               userRole === 'vendor' ? (
-                <VendorDashboardNavigation 
+                <VendorDashboardNavigation
                   activeRoute={activeRoute}
                   onNavigate={handleNavigation}
                   notifications={notifications}
                   isMobile={true}
                 />
               ) : (
-                <CustomerNavigationBar 
+                <CustomerNavigationBar
                   activeRoute={activeRoute}
                   onNavigate={handleNavigation}
                   notifications={notifications}
@@ -183,7 +183,7 @@ const RoleBasedNavigation = ({ userRole = 'customer', isAuthenticated = false, a
               )
             ) : (
               <>
-                <CustomerNavigationBar 
+                <CustomerNavigationBar
                   activeRoute={activeRoute}
                   onNavigate={handleNavigation}
                   notifications={notifications}

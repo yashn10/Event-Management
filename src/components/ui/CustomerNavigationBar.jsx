@@ -1,22 +1,22 @@
 import React from 'react';
 import Icon from '../AppIcon';
 
-const CustomerNavigationBar = ({ 
-  activeRoute = '/', 
-  onNavigate, 
-  notifications = {}, 
-  isDesktop = false, 
+const CustomerNavigationBar = ({
+  activeRoute = '/',
+  onNavigate,
+  notifications = {},
+  isDesktop = false,
   isMobile = false,
-  isAuthenticated = true 
+  isAuthenticated = true
 }) => {
   const navigationItems = [
-    {
-      label: 'Search Vendors',
-      path: '/vendor-search-discovery',
-      icon: 'Search',
-      tooltip: 'Find and compare event vendors',
-      badge: null
-    },
+    // {
+    //   label: 'Search Vendors',
+    //   path: '/vendor-search-discovery',
+    //   icon: 'Search',
+    //   tooltip: 'Find and compare event vendors',
+    //   badge: null
+    // },
     {
       label: 'Browse Profiles',
       path: '/vendor-profile-portfolio',
@@ -44,7 +44,7 @@ const CustomerNavigationBar = ({
     }
   ];
 
-  const allItems = isAuthenticated 
+  const allItems = isAuthenticated
     ? [...navigationItems, ...authenticatedItems]
     : navigationItems;
 
@@ -56,16 +56,16 @@ const CustomerNavigationBar = ({
 
   const renderNavigationItem = (item, index) => {
     const isActive = activeRoute === item?.path;
-    
+
     if (isDesktop) {
       return (
         <button
           key={item?.path}
           onClick={() => handleItemClick(item?.path)}
           className={`
-            relative flex items-center space-x-2 px-4 py-2 rounded-lg font-body font-medium transition-smooth
-            ${isActive 
-              ? 'bg-primary text-primary-foreground' 
+            relative flex items-center space-x-2 px-4 py-2 rounded-sm font-body font-medium transition-smooth
+            ${isActive
+              ? 'bg-primary text-primary-foreground'
               : item?.isPrimary
                 ? 'bg-accent text-accent-foreground hover:bg-accent/90'
                 : 'text-muted-foreground hover:text-foreground hover:bg-muted'
@@ -91,8 +91,8 @@ const CustomerNavigationBar = ({
           onClick={() => handleItemClick(item?.path)}
           className={`
             flex items-center justify-between w-full px-4 py-3 rounded-lg font-body font-medium transition-smooth
-            ${isActive 
-              ? 'bg-primary text-primary-foreground' 
+            ${isActive
+              ? 'bg-primary text-primary-foreground'
               : item?.isPrimary
                 ? 'bg-accent text-accent-foreground'
                 : 'text-muted-foreground hover:text-foreground hover:bg-muted'

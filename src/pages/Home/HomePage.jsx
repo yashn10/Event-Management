@@ -27,7 +27,7 @@ const HomePage = () => {
 
   return (
 
-    <div className="container">
+    <div className="container-fluid px-12 py-5">
 
       <header>
         <div className="brand">
@@ -41,8 +41,8 @@ const HomePage = () => {
         <nav aria-label="Primary">
           <a href="#categories">Services</a>
           <Link to="/vendor-search-discovery">Vendors</Link>
-          <a href="#b2b">B2B</a>
-          <a href="#how">How it works</a>
+          {/* <a href="#b2b">B2B</a>
+          <a href="#how">How it works</a> */}
           <button className="cta" onClick={handleGetStarted}>Get Started</button>
         </nav>
       </header>
@@ -220,6 +220,7 @@ const HomePage = () => {
               <strong>October 2025</strong>
               <div className="muted">Availability snapshot — Pune</div>
             </div>
+
             <div className="cal-grid" aria-hidden>
               <div className="cal-day muted">Sun</div>
               <div className="cal-day muted">Mon</div>
@@ -269,36 +270,70 @@ const HomePage = () => {
             </div>
           </div>
 
+          {/* <-- INSERTED AD CARD (non-invasive) --> */}
+          <div className="ep-ad-card fade-in" role="region" aria-label="Sponsored Ad">
+            <div className="ep-ad-media">
+              <img
+                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop"
+                alt="Sponsored Event Partner"
+              />
+              <span className="ep-ad-badge">Sponsored</span>
+            </div>
+
+            <div className="ep-ad-body">
+              <h4>Premium Venue Spotlight</h4>
+              <p className="muted">Book Royal Plaza for your wedding and get a complimentary decor package. Limited slots in October.</p>
+              <div className="ep-ad-actions">
+                <button className="btn-outline" onClick={(e) => e.preventDefault()}>Learn More</button>
+                <button className="btn-primary" onClick={(e) => e.preventDefault()}>Contact</button>
+              </div>
+            </div>
+          </div>
+          {/* <-- end ad card --> */}
+
           <div className="card fade-in">
             <strong>Smart Recommendations</strong>
-            <p className="muted" style={{ marginTop: '8px' }}>AI-powered vendor suggestions based on event type, budget
-              and availability.</p>
+            <p className="muted" style={{ marginTop: '8px' }}>
+              AI-powered vendor suggestions based on event type, budget and availability.
+            </p>
           </div>
 
           <div className="card fade-in">
             <strong>Sustainability</strong>
-            <p className="muted" style={{ marginTop: '8px' }}>Filter eco-friendly vendors and highlight green options for
-              sustainable events.</p>
+            <p className="muted" style={{ marginTop: '8px' }}>
+              Filter eco-friendly vendors and highlight green options for sustainable events.
+            </p>
           </div>
         </aside>
       </section>
 
       {/* How it works */}
-      <section className="how" id="how">
-        <div className="step fade-in">
-          <div className="muted">1</div>
+      <section className="how modern-steps" id="how">
+        <div className="step modern-step fade-in">
+          <div className="step-top">
+            <div className="step-icon">🔎</div>
+            <div className="step-number">1</div>
+          </div>
           <h4>Search</h4>
-          <p className="muted">Choose service, dates and budget</p>
+          <p className="muted">Choose service, dates and budget — see top local vendors instantly.</p>
         </div>
-        <div className="step fade-in">
-          <div className="muted">2</div>
+
+        <div className="step modern-step fade-in">
+          <div className="step-top">
+            <div className="step-icon">💬</div>
+            <div className="step-number">2</div>
+          </div>
           <h4>Request or Book</h4>
-          <p className="muted">Request quotes or instant book if available</p>
+          <p className="muted">Request quotes or instant book vendors — chat & negotiate if needed.</p>
         </div>
-        <div className="step fade-in">
-          <div className="muted">3</div>
+
+        <div className="step modern-step fade-in">
+          <div className="step-top">
+            <div className="step-icon">💳</div>
+            <div className="step-number">3</div>
+          </div>
           <h4>Pay & Confirm</h4>
-          <p className="muted">Secure payments with GST-compliant invoices</p>
+          <p className="muted">Secure payments with GST-compliant invoices and automated reminders.</p>
         </div>
       </section>
 

@@ -44,12 +44,12 @@ const VendorHero = ({ vendor, onGetQuote, onCall, onWhatsApp }) => {
                 className="w-full h-full object-cover"
               />
             </div>
-            
+
             <div className="flex-1 min-w-0">
               <h1 className="text-xl lg:text-2xl font-heading font-bold text-foreground mb-2">
                 {vendor?.name}
               </h1>
-              
+
               <div className="flex flex-wrap gap-2 mb-3">
                 {vendor?.categories?.map((category, index) => (
                   <span
@@ -106,7 +106,7 @@ const VendorHero = ({ vendor, onGetQuote, onCall, onWhatsApp }) => {
             >
               Get Quote
             </Button>
-            
+
             <div className="flex space-x-2">
               <Button
                 variant="outline"
